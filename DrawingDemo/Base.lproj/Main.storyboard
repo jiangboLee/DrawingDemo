@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,96 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DrawingDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="线宽" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w7G-7d-z4d">
+                                <rect key="frame" x="9" y="33" width="50" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0i-Id-oBS">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-zE-HMP">
+                                <rect key="frame" x="120" y="32" width="31" height="30"/>
+                                <state key="normal" title="设置"/>
+                                <connections>
+                                    <action selector="againClickAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dj7-ro-Vfp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQw-oJ-eRe">
+                                <rect key="frame" x="74" y="32" width="31" height="30"/>
+                                <state key="normal" title="重来"/>
+                                <connections>
+                                    <action selector="clearClickAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="40D-B2-9JE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mt5-Wm-eCD">
+                                <rect key="frame" x="166" y="32" width="75" height="30"/>
+                                <state key="normal" title="保存到plist"/>
+                                <connections>
+                                    <action selector="savePlistAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tgY-Qc-t0v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1I-TM-rP9">
+                                <rect key="frame" x="256" y="32" width="31" height="30"/>
+                                <state key="normal" title="动画"/>
+                                <connections>
+                                    <action selector="animationClickAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VZB-hr-65x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYg-bB-zMJ">
+                                <rect key="frame" x="312" y="32" width="31" height="30"/>
+                                <state key="normal" title="暂停"/>
+                                <connections>
+                                    <action selector="stopClickAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W5A-07-sty"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvQ-2a-87r">
+                                <rect key="frame" x="166" y="62" width="177" height="30"/>
+                                <state key="normal" title="点击动画后直接点生成GIF"/>
+                                <connections>
+                                    <action selector="createGifAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0YH-Jv-SqX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dQw-oJ-eRe" firstAttribute="leading" secondItem="w7G-7d-z4d" secondAttribute="trailing" constant="15" id="2uy-pZ-cCZ"/>
+                            <constraint firstItem="Mt5-Wm-eCD" firstAttribute="leading" secondItem="Cj9-zE-HMP" secondAttribute="trailing" constant="15" id="59L-oR-Rau"/>
+                            <constraint firstItem="f1I-TM-rP9" firstAttribute="leading" secondItem="Mt5-Wm-eCD" secondAttribute="trailing" constant="15" id="5D9-HY-jqI"/>
+                            <constraint firstItem="JYg-bB-zMJ" firstAttribute="top" secondItem="f1I-TM-rP9" secondAttribute="top" id="6F4-NE-eRz"/>
+                            <constraint firstItem="w7G-7d-z4d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="DqN-7V-ZAF"/>
+                            <constraint firstItem="z0i-Id-oBS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="100" id="L5s-Ue-ffC"/>
+                            <constraint firstItem="NvQ-2a-87r" firstAttribute="top" secondItem="Mt5-Wm-eCD" secondAttribute="bottom" id="PWD-FU-wma"/>
+                            <constraint firstItem="f1I-TM-rP9" firstAttribute="top" secondItem="dQw-oJ-eRe" secondAttribute="top" id="PXE-dm-4jF"/>
+                            <constraint firstItem="Cj9-zE-HMP" firstAttribute="top" secondItem="dQw-oJ-eRe" secondAttribute="top" id="T5q-II-uWJ"/>
+                            <constraint firstItem="z0i-Id-oBS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ufq-D3-Ybf"/>
+                            <constraint firstItem="dQw-oJ-eRe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="UxN-Wg-hkL"/>
+                            <constraint firstAttribute="trailing" secondItem="JYg-bB-zMJ" secondAttribute="trailing" constant="32" id="YPa-V4-wbA"/>
+                            <constraint firstItem="NvQ-2a-87r" firstAttribute="leading" secondItem="Mt5-Wm-eCD" secondAttribute="leading" id="YTP-ma-noG"/>
+                            <constraint firstAttribute="trailing" secondItem="z0i-Id-oBS" secondAttribute="trailing" id="cwW-GP-1B1"/>
+                            <constraint firstItem="w7G-7d-z4d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="fDR-Kl-4pg"/>
+                            <constraint firstItem="JYg-bB-zMJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f1I-TM-rP9" secondAttribute="trailing" symbolic="YES" id="irD-2U-8WX"/>
+                            <constraint firstAttribute="bottom" secondItem="z0i-Id-oBS" secondAttribute="bottom" id="mH7-Xe-wiZ"/>
+                            <constraint firstItem="Mt5-Wm-eCD" firstAttribute="top" secondItem="dQw-oJ-eRe" secondAttribute="top" id="uIN-6E-4nr"/>
+                            <constraint firstItem="Cj9-zE-HMP" firstAttribute="leading" secondItem="dQw-oJ-eRe" secondAttribute="trailing" constant="15" id="wLr-WP-e32"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="drawView" destination="z0i-Id-oBS" id="X5h-6h-2kb"/>
+                        <outlet property="lineWidthTextField" destination="w7G-7d-z4d" id="YN4-d8-FV9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="71" y="4"/>
         </scene>
     </scenes>
 </document>
