@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         shaperLayer.path = path.cgPath
         pointArr.removeAll()
     }
-    
+    ///路径保存成plist
     @IBAction func savePlistAction(_ sender: Any) {
         
         let fm = FileManager.default
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             print("保存成功")
         }
     }
-
+    ///从plist读取生成动画
     @IBAction func animationClickAction(_ sender: Any) {
         
         
@@ -105,6 +105,7 @@ class ViewController: UIViewController {
         pointArr.removeAll()
     }
     
+    ///生成GIF
     @IBAction func createGifAction(_ sender: Any) {
         
         shaperLayer.removeAllAnimations()
