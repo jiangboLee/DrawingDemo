@@ -17,7 +17,7 @@
 ![test4.gif](https://upload-images.jianshu.io/upload_images/2868618-329c85ca92330d43.gif?imageMogr2/auto-orient/strip)
 
 #### 核心代码
-```
+```swift
 ///路径保存成plist
     @IBAction func savePlistAction(_ sender: Any) {
         
@@ -34,7 +34,7 @@
         }
     }
 ```
-```
+```swift
 ///从plist读取生成动画
     @IBAction func animationClickAction(_ sender: Any) {
         
@@ -72,7 +72,7 @@
         }
     }
 ```
-```
+```swift
 ///生成GIF
     @IBAction func createGifAction(_ sender: Any) {
         
